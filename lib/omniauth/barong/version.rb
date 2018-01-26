@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module OmniAuth
-  module BarongOauth2
-    VERSION = '0.5.2'
+  module Barong
+    VERSION = '0.0.1'
   end
 end

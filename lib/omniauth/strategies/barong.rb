@@ -7,14 +7,14 @@ require 'uri'
 
 module OmniAuth
   module Strategies
-    class BarongOauth2 < OmniAuth::Strategies::OAuth2
+    class Barong < OmniAuth::Strategies::OAuth2
       # change the class name and the :name option to match your application name
-      option :name, :barong_oauth2
+      option :name, :barong
 
       option :client_options, {
           :site => 'https://barong.kayen.io/',
           :authorize_url => '/oauth/authorize',
-          :redirect_uri => 'http://localhost:3000'
+          :redirect_uri => 'https://peatio.kayen.io'
       }
 
       uid { raw_info["id"] }

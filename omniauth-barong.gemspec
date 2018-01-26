@@ -5,7 +5,7 @@ require "omniauth/barong/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "omniauth-barong"
-  spec.version       = Omniauth::Barong::VERSION
+  spec.version       = OmniAuth::Barong::VERSION
   spec.authors       = ["Louis Bellet"]
   spec.email         = ["lbellet@heliostech.fr"]
 
