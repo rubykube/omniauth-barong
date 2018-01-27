@@ -6,8 +6,8 @@ require "omniauth/barong/version"
 Gem::Specification.new do |spec|
   spec.name          = "omniauth-barong"
   spec.version       = OmniAuth::Barong::VERSION
-  spec.authors       = ["Louis Bellet"]
-  spec.email         = ["lbellet@heliostech.fr"]
+  spec.authors       = ["Louis Bellet","Yaroslav Savchuk"]
+  spec.email         = ["lbellet@heliostech.fr","ysavchuk@heliostech.fr"]
 
   spec.summary       = %q{Authentification strategy for Barong server}
   spec.description   = %q{Barong is an opensource OAuth and KyC server}

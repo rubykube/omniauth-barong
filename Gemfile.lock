@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    omniauth-barong (0.5.2)
+    omniauth-barong (0.1.0)
       omniauth-oauth2 (~> 1.5)
 
 GEM
