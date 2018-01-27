@@ -1,7 +1,3 @@
-require "omniauth/barong/version"
+# frozen_string_literal: true
 
-module Omniauth
-  module Barong
-    # Your code goes here...
-  end
-end
+require 'omniauth/strategies/barong'
