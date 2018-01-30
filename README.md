@@ -22,7 +22,23 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+`OmniAuth::Strategies::Barong` is simply a Rack middleware. Read the OmniAuth docs for detailed instructions: https://github.com/intridea/omniauth.
+
+Here's a quick example, adding the middleware to a Rails app in `config/initializers/omniauth.rb`:
+
+```ruby
+Rails.application.config.middleware.use OmniAuth::Builder do
+  provider :barong, ENV.fetch('BARONG_CLIENT_ID'), ENV.fetch('BARONG_CLIENT_SECRET')
+end
+```
+
+## Configuration
+
+You can configure several options, which you pass in to the `provider` method via a hash:
+
+* `callback_url`(default: `your-application-url/auth/barong/callback`): Override callback_url used by barong server.
+* `domain`(default: `barong.io`): Barong server domain where your application is configured.
+* `use_https`(default: `true`) Enable https on your barong sever redirection (disable for test purpose).
 
 ## Development
 
