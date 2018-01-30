@@ -11,10 +11,11 @@ module OmniAuth
       option :name, :barong
       option :callback_url
       option :domain, 'barong.io'
+      option :use_https, true
 
       # This option is temporary dynamic due to barong development.
       option  :authorize_url, '/oauth/authorize'
-      option  :raw_info_url, 'api/account'
+      option  :raw_info_url, '/api/account'
 
       args [
           :client_id,
@@ -29,22 +30,20 @@ module OmniAuth
         super
       end
 
-      # TODO: if we use 'localhost' as options.domain this will rise exception.
-      # Need to change to be able to use localhost as domain for testing.
-      # Temporary 'http://localhost' could be used.
       def domain_url
         domain_url = URI(options.domain)
-        domain_url = URI("https://#{domain_url}") if domain_url.scheme.nil?
+        domain_url = URI("#{scheme}://#{domain_url}") unless domain_url.class.in? ([URI::HTTP, URI::HTTPS])
         domain_url.to_s
       end
 
-      uid { raw_info["id"] }
+
+      uid { raw_info['id'] }
 
       info do
         {
-            :email => raw_info['email'],
-            :role => raw_info['role'],
-            :level => @raw_info['level']
+            email:  raw_info['email'],
+            role:   raw_info['role'],
+            level:  raw_info['level']
         }
       end
 
@@ -54,6 +53,11 @@ module OmniAuth
 
       def callback_url
         options.callback_url || (full_host + script_name + callback_path)
+      end
+
+      private
+      def scheme
+        options.use_https ? 'https' : 'http'
       end
     end
   end
