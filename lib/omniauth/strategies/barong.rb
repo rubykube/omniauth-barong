@@ -37,13 +37,14 @@ module OmniAuth
       end
 
 
-      uid { raw_info['id'] }
+      uid { raw_info['uid'] }
 
       info do
         {
             email:  raw_info['email'],
             role:   raw_info['role'],
             level:  raw_info['level']
+            state:  raw_info['state']
         }
       end
 
