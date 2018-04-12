@@ -13,9 +13,10 @@ module OmniAuth
       option :domain, 'barong.io'
       option :use_https, true
 
-      # This option is temporary dynamic due to barong development.
+      option :api_version, 'v1'
+
       option  :authorize_url, '/oauth/authorize'
-      option  :raw_info_url, '/api/account'
+      option  :raw_info_url
 
       args [
           :client_id,
@@ -49,7 +50,11 @@ module OmniAuth
       end
 
       def raw_info
-        @raw_info ||= access_token.get(options.raw_info_url).parsed
+        @raw_info ||= access_token.get(raw_info_url).parsed
+      end
+
+      def raw_info_url
+        options.raw_info_url || "/api/#{options.api_version}/account"
       end
 
       def callback_url
