@@ -54,7 +54,7 @@ module OmniAuth
       end
 
       def raw_info_url
-        options.raw_info_url || "/api/#{options.api_version}/account"
+        options.raw_info_url || "/api/#{options.api_version}/accounts/me"
       end
 
       def callback_url
